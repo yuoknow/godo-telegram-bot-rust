@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: godo_telegram_bot
+    restart: unless-stopped
+    environment:
+      - RUST_LOG=info
+      - TELOXIDE_TOKEN=${TELEGRAM_BOT_TOKEN}
